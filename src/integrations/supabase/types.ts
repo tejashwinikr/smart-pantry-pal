@@ -14,7 +14,155 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      frequent_items: {
+        Row: {
+          category: string | null
+          id: string
+          item_name: string
+          last_purchased: string
+          purchase_count: number
+          user_id: string
+        }
+        Insert: {
+          category?: string | null
+          id?: string
+          item_name: string
+          last_purchased?: string
+          purchase_count?: number
+          user_id: string
+        }
+        Update: {
+          category?: string | null
+          id?: string
+          item_name?: string
+          last_purchased?: string
+          purchase_count?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      grocery_items: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          list_id: string
+          name: string
+          purchased: boolean
+          quantity: number
+          unit: string | null
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          id?: string
+          list_id: string
+          name: string
+          purchased?: boolean
+          quantity?: number
+          unit?: string | null
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          list_id?: string
+          name?: string
+          purchased?: boolean
+          quantity?: number
+          unit?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "grocery_items_list_id_fkey"
+            columns: ["list_id"]
+            isOneToOne: false
+            referencedRelation: "grocery_lists"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      grocery_lists: {
+        Row: {
+          created_at: string
+          id: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      pantry_items: {
+        Row: {
+          category: string
+          created_at: string
+          expiry_date: string | null
+          id: string
+          name: string
+          purchase_date: string | null
+          quantity: number
+          unit: string
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          expiry_date?: string | null
+          id?: string
+          name: string
+          purchase_date?: string | null
+          quantity?: number
+          unit?: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          expiry_date?: string | null
+          id?: string
+          name?: string
+          purchase_date?: string | null
+          quantity?: number
+          unit?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          email: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
