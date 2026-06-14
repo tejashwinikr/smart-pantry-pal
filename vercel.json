@@ -1,20 +1,4 @@
 {
   "framework": null,
-  "buildCommand": "npm run build",
-  "outputDirectory": ".output/public",
-  "functions": {
-    "server/index.mjs": {
-      "runtime": "nodejs20.x"
-    }
-  },
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/server/index.mjs"
-    }
-  ]
+  "buildCommand": "npm run build"
 }
