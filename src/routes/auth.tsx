@@ -105,7 +105,7 @@ function AuthPage() {
                 />
               </div>
               <Button className="w-full" onClick={signIn} disabled={loading}>
-                {loading ? "..." : "Sign in123"}
+                {loading ? "..." : "Sign in"}
               </Button>
             </TabsContent>
 
